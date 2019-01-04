@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Matkun</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/images/css/main.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.2.0/turbolinks.js"></script>
+    <script defer src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+</head>
+<body>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<div class="container">
+    <div class="row justify-content-md-center">
+
+        <nav class="navbar navbar-expand-lg  navbar-transparen justify-content-end navbar-inverse">
+            <a class="navbar-brand" href="/"><img src="/static/images/logas.png" width="200" height="45" alt=""></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mr-auto my-2 my-sm-0">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">Главная <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/services">Услуги</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link " href="/connect" >Контакты</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="/admin" >Администратор</a>
+                    </li>
+                </ul>
+            </div>
+
+        </nav>
+
+
+</div>
+</div>
+<div class="content">
+    <div class="contact">
+        <div class="container">
+            <div class="row justify-content-md-center">
+                <H1 class="font-weight-bold">КОНТАКТЫ</H1>
+            </div>
+        </div>
+        <div class=boxs>
+                <h3 class="po22">Вы можете связаться со мной:</h3>
+                <p> через LinkedIn:<a href="https://www.linkedin.com/in/viktor-huhniuk-03b4a7158/"><img src="/static/images/linkedIn_PNG22.png" width="30" height="30" alt=""></a><br>
+                    через социльаную сеть вконтакте: <a href="https://vk.com/id124503090"><img src="/static/images/vk_logo.png" width="30" height="30" alt=""></a><br>
+                    написать мне на почту e-mail: matkun81@gmail.com<br>
+            или через форму представленную ниже.
+            </div>
+</div>
+</div>
+</div>
+<div>
+    <h1 class="text-center">Форма заявки</h1>
+    <h3 class="text-center">Для того, чтобы я мог с вами связаться, необходимо заполнить все поля: </h3>
+</div>
+{{#check}}
+<div class="alert alert-danger text-center" role="alert">
+    {{check}}
+</div>
+{{/check}}
+{{#success}}
+<div class="alert alert-success text-center" role="alert">
+    {{success}}
+</div>
+{{/success}}
+<div class="container">
+    <div class="row-justify-content-center align-items-center">
+<form method="post" action="/connect">
+    <div class="form-row center-block" >
+        <div class="form-group col-md-2 center-block ">
+            <label for="inputEmail4">Имя</label>
+            <input type="text" class="form-control" id="inputEmail4" name="name" placeholder="Name">
+        </div>
+        <div class="form-group col-md-2">
+            <label for="inputPassword4">Email</label>
+            <input type="email" class="form-control" id="inputPassword4" name="email" placeholder="Email">
+        </div>
+        <div class="form-group col-md-2 center-block">
+            <label for="inputAddress">Номер телефона</label>
+            <input type="text" class="form-control" id="inputAddress" name="numberPhone" placeholder="Номер телефона" value="+375">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="inputAddress2">Тема вопроса</label>
+        <input type="text" class="form-control" id="inputAddress2" name="themeQwest" placeholder="Заявка, оказание услуг...">
+    </div>
+    <div class="form-group">
+    <label for="inputAddress2">Вопрос</label>
+    <input type="text" class="form-control" rows = "3" id="inputAddress2" name="qwest" placeholder="Текст вопроса">
+    </div>
+    <button type="submit" class="btn btn-primary">Отправить</button>
+</form>
+    </div>
+</div>
+<H1> </H1>
+</body>
+<div class="container">
+    <div class="row justify-content-md-center"><h6>MatkunProduction <a href="https://vk.com/id124503090"><img src="/static/images/vk_logo.png" width="30" height="30" alt=""></a>
+        <a href="https://www.linkedin.com/in/viktor-huhniuk-03b4a7158/"><img src="/static/images/linkedIn_PNG22.png" width="30" height="30" alt=""></a></h6></div>
+     </div>
+</html>
