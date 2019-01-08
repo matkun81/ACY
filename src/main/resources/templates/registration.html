@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Spring Security Example </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/images/css/login.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.2.0/turbolinks.js"></script>
+    <script defer src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+</head>
+<body>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<div th:if="${param.error}">
+    Invalid username and password.
+</div>
+<div th:if="${param.logout}">
+    You have been logged out.
+</div>
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Регистрация</h5>
+            <button class="close" type="button" data-dismiss = "modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+        </div>
+<div class="modal-body">
+    <div class="container-fluid">
+        <form th:action="@{/registration}" method="post">
+            <div class="form-group">
+                <label for="exampleInputUserName">Логин</label>
+                <input type ="text" class="form-control" id="exampleInputUserName" aria-describedby="userHelp" placeholder="User Name" name="username">
+                <small id="userHelp" class="form-text text-muted">Введите свой логин</small>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPass">Пароль</label>
+                <input type ="password" class="form-control" id="exampleInputPass" placeholder="Пароль" name="password">
+                <small id="passHelp" class="form-text text-muted">Введите вашь пароль</small>
+            </div>
+            <button type="submit" class="btn btn-primary">Войти</button>
+        </form>
+    </div>
+</div>
+    </div>
+</div>
+<!--<div th:if="${param.error}">-->
+    <!--Invalid username and password.-->
+<!--</div>-->
+<!--<div th:if="${param.logout}">-->
+    <!--You have been logged out.-->
+<!--</div>-->
+<!--<form th:action="@{/login}" method="post">-->
+    <!--<div><label> User Name : <input type="text" name="username"/> </label></div>-->
+    <!--<div><label> Password: <input type="password" name="password"/> </label></div>-->
+    <!--<div><input type="submit" value="Sign In"/></div>-->
+<!--</form>-->
+</body>
+</html>
