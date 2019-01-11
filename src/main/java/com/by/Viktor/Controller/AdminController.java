@@ -24,14 +24,11 @@ public class AdminController {
 
     @Autowired
     MessageRepository repository;
-    @Autowired
-    UserRepository userRepository;
+
 
     @GetMapping("/admin")
     public String getAll(Map<String,Object> model){
-        Iterable<User> users = userRepository.findAll();
         Iterable<Message> messages = repository.findAll();
-        model.put("users", users);
         model.put("messages",messages);
         return "admin";
     }
@@ -48,25 +45,9 @@ public class AdminController {
     return "admin";
 }
 @PostMapping("/delete")
-public String delete(@RequestParam String some, Map<String,Object> model){
+public String delete(@RequestParam String some){
 repository.deleteById(Long.parseLong(some));
-Iterable<Message> messages = repository.findAll();
-model.put("messages",messages);
-        return "admin";
+        return "redirect:/admin";
 }
-@PostMapping("adminrole")
-    public String adminRole(@RequestParam Long id){
-        User userFromDb = userRepository.getOne(id);
-        userFromDb.getRoles().add(Role.ADMIN);
-        userRepository.save(userFromDb);
-        return "redirect:/admin";
-    }
-    @PostMapping("userrole")
-    public String userRole(@RequestParam Long id){
-        User userFromDb = userRepository.getOne(id);
-        userFromDb.getRoles().clear();
-        userFromDb.getRoles().add(Role.User);
-        userRepository.save(userFromDb);
-        return "redirect:/admin";
-    }
+
 }

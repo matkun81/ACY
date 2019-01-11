@@ -30,7 +30,8 @@ public class RegistrationController {
             user.setActive(true);
             user.setRoles(Collections.singleton(Role.User));
             userRepository.save(user);
+            return "redirect:/login";
         }
-        return "redirect:/login";
+        return "registration";
     }
 }
