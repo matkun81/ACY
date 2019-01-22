@@ -1,8 +1,8 @@
-package com.by.Viktor.Controller;
+package com.by.viktor.controller;
 
-import com.by.Viktor.Model.Role;
-import com.by.Viktor.Model.User;
-import com.by.Viktor.Repository.UserRepository;
+import com.by.viktor.model.Role;
+import com.by.viktor.model.User;
+import com.by.viktor.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

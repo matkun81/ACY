@@ -1,4 +1,4 @@
-package com.by.Viktor.Model;
+package com.by.viktor.model;
 
 public enum Role {
     User, ADMIN;

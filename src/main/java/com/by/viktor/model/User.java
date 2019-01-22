@@ -1,4 +1,4 @@
-package com.by.Viktor.Model;
+package com.by.viktor.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
