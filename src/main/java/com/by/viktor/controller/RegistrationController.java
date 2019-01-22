@@ -18,14 +18,15 @@ public class RegistrationController {
     private UserRepository userRepository;
 
     @GetMapping("/registration")
-    public String registration(){
+    public String registration() {
         return "registration";
     }
+
     @PostMapping("/registration")
-    public  String addNewUser(User user, Map<String,Object> model){
+    public String addNewUser(User user, Map<String, Object> model) {
         User userFromDb = userRepository.findAllByUsername(user.getUsername());
-        if (userFromDb!=null){
-            model.put("message","User exist");
+        if (userFromDb != null) {
+            model.put("message", "User exist");
         } else {
             user.setActive(true);
             user.setRoles(Collections.singleton(Role.User));

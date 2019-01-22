@@ -21,27 +21,28 @@ public class AdminController {
 
 
     @GetMapping("/admin")
-    public String getAll(Map<String,Object> model){
+    public String getAll(Map<String, Object> model) {
         Iterable<Message> messages = repository.findAll();
-        model.put("messages",messages);
+        model.put("messages", messages);
         return "admin";
     }
-@PostMapping("filter")
-    public String filter(@RequestParam String name,Map<String,Object> model){
-        if (name.isEmpty()){
-            Iterable<Message> messages= repository.findAll();
+
+    @PostMapping("filter")
+    public String filter(@RequestParam String name, Map<String, Object> model) {
+        if (name.isEmpty()) {
+            Iterable<Message> messages = repository.findAll();
             model.put("messages", messages);
-        }
-        else {
+        } else {
             List<Message> messages = repository.findByName(name);
             model.put("messages", messages);
         }
-    return "admin";
-}
-@PostMapping("/delete")
-public String delete(@RequestParam String some){
-repository.deleteById(Long.parseLong(some));
+        return "admin";
+    }
+
+    @PostMapping("/delete")
+    public String delete(@RequestParam String some) {
+        repository.deleteById(Long.parseLong(some));
         return "redirect:/admin";
-}
+    }
 
 }

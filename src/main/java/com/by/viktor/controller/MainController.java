@@ -28,10 +28,10 @@ public class MainController {
     public void add(@RequestParam String name, @RequestParam String email,
                     @RequestParam String numberPhone, @RequestParam String themeQwest,
                     @RequestParam String qwest, Map<String, Object> model) {
-        if (name.equals("") || email.equals("")|| numberPhone.equals("") || themeQwest.equals("") || qwest.equals("")) {
+        if (name.equals("") || email.equals("") || numberPhone.equals("") || themeQwest.equals("") || qwest.equals("")) {
             model.put("check", "Необходимо заполнить все поля");
         } else {
-            model.put("success","Ваше сообщение отправлено");
+            model.put("success", "Ваше сообщение отправлено");
             Message message = new Message(name, email, numberPhone, themeQwest, qwest);
             repository.save(message);
         }

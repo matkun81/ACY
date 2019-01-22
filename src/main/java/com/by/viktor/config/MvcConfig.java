@@ -16,7 +16,8 @@ public class MvcConfig implements WebMvcConfigurer {
         registry.addViewController("/connect").setViewName("connect");
         registry.addViewController("/connect/request").setViewName("connect");
     }
-    public void addResourceHandlers(ResourceHandlerRegistry handlerRegistry){
+
+    public void addResourceHandlers(ResourceHandlerRegistry handlerRegistry) {
         handlerRegistry.addResourceHandler("/static/**")
                 .addResourceLocations("classpath:/static/");
     }

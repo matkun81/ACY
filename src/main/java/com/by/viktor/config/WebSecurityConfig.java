@@ -19,11 +19,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Qualifier("dataSource")
     @Autowired
     private DataSource dataSource;
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/", "/home/**","/services","/registration","/connect/**","/static/**").permitAll()
+                .antMatchers("/", "/home/**", "/services", "/registration", "/connect/**", "/static/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -37,7 +38,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception{
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.jdbcAuthentication()
                 .dataSource(dataSource)
                 .passwordEncoder(NoOpPasswordEncoder.getInstance())

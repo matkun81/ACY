@@ -9,10 +9,10 @@ import java.util.Set;
 @Entity
 @Data
 @NoArgsConstructor
-@Table (name = "usr")
+@Table(name = "usr")
 public class User {
-@Id
-@GeneratedValue(strategy= GenerationType.SEQUENCE)
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private String username;
     private String password;

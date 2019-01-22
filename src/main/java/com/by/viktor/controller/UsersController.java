@@ -24,15 +24,16 @@ public class UsersController {
     private static boolean role = false;
 
     @GetMapping
-    public String getAllUsers(Map<String, Object> model){
+    public String getAllUsers(Map<String, Object> model) {
         Iterable<User> users = userRepository.findAll();
         model.put("users", users);
         return "users";
     }
+
     @PostMapping
-    public String adminRole(@RequestParam Long id){
+    public String adminRole(@RequestParam Long id) {
         User userFromDb = userRepository.getOne(id);
-        if (role){
+        if (role) {
             userFromDb.getRoles().add(Role.ADMIN);
             role = false;
         } else {
