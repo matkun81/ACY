@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Map;
 
@@ -25,16 +24,12 @@ public class MainController {
     }
 
     @PostMapping
-    public void add(@RequestParam String name, @RequestParam String email,
-                    @RequestParam String numberPhone, @RequestParam String themeQwest,
-                    @RequestParam String qwest, Map<String, Object> model) {
-        if (name.equals("") || email.equals("") || numberPhone.equals("") || themeQwest.equals("") || qwest.equals("")) {
+    public void add(Message message, Map<String, Object> model) {
+        if (message.getName().equals("") || message.getEmail().equals("") || message.getNumberPhone().equals("") || message.getThemeQwest().equals("") || message.getQwest().equals("")) {
             model.put("check", "Необходимо заполнить все поля");
         } else {
             model.put("success", "Ваше сообщение отправлено");
-            Message message = new Message(name, email, numberPhone, themeQwest, qwest);
             repository.save(message);
         }
-//        return "connect";
     }
 }

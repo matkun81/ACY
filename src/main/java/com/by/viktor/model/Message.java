@@ -28,5 +28,4 @@ public class Message {
     private String themeQwest;
     @NonNull
     private String Qwest;
-
 }
